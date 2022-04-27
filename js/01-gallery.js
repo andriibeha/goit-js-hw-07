@@ -1,11 +1,5 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
-/* 
-Заміна значення атрибута src елемента < img > в модальному вікні перед відкриттям. 
-Використовуй готову розмітку модального вікна із зображенням з прикладів бібліотеки basicLightbox.
- */
-
 /* 
 1. Створення і рендер розмітки на підставі масиву даних galleryItems і наданого шаблону елемента галереї.
 */
@@ -40,7 +34,6 @@ function onGalleryImgClick(e) {
     e.preventDefault();
 
     const img = e.target;
-    console.log("EVENT: ",  img);
     
     if (img.nodeName !== "IMG") {
         return ;
