@@ -31,23 +31,37 @@ refs.galleryList.addEventListener('click', onGalleryImgClick);
 
 
 function onGalleryImgClick(e) {
-    e.preventDefault();
+    e.preventDefault();   
 
-    const img = e.target;
-    
-    if (img.nodeName !== "IMG") {
+    if (e.target.nodeName !== "IMG") {
         return ;
     }
 
     const selectedImgUrl = e.target.dataset.source;
     
+
     const instance = basicLightbox.create(`
     <img src="${selectedImgUrl}">
-    `)
+    `);
+    
+    instance.show();
 
-    instance.show()
+    onEscapeClose(instance)
 
 };
+
+function onEscapeClose(instance) { 
+    const visible = basicLightbox.visible();
+
+    if (visible) { 
+        window.addEventListener('keydown', e => {
+            if (e.key === "Escape") {
+                instance.close()
+            }
+        });
+    };
+}
+
 
 
 
