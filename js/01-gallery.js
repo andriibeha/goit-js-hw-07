@@ -35,6 +35,7 @@ refs.galleryList.innerHTML = galleryListCreat;
 */
 refs.galleryList.addEventListener('click', onGalleryImgClick);
 
+
 function onGalleryImgClick(e) {
     e.preventDefault();
 
@@ -47,38 +48,14 @@ function onGalleryImgClick(e) {
 
     const selectedImgUrl = e.target.dataset.source;
     
- /*    const selectedImgEl = document.querySelector(".gallery__image");
-    console.log("SELECTED-IMG: ", selectedImgEl);
- */
-    img.onclick = () => {
-    basicLightbox.create(`
-		<img width="1400" height="900" src="${selectedImgUrl}">
-	`).show()
-    }
+    const instance = basicLightbox.create(`
+    <img src="${selectedImgUrl}">
+    `)
 
-   
-    
+    instance.show()
+
 };
 
-/* 
-3. Підключення скрипту і стилів бібліотеки модального вікна basicLightbox. 
-Використовуй CDN сервіс jsdelivr і додай у проект посилання на мініфіковані(.min) файли бібліотеки.
- */
-
-/* 
-4. Відкриття модального вікна по кліку на елементі галереї.Для цього ознайомся з документацією і прикладами. 
-
-
-document.querySelector('button.image').onclick = () => {
-
-	basicLightbox.create(`
-		<img width="1400" height="900" src="https://placehold.it/1400x900">
-	`).show()
-
-}
- */
 
 
 
-
-console.log(galleryItems);
